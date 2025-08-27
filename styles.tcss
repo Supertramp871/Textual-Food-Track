@@ -1,0 +1,72 @@
+/* Основные стили */
+Screen {
+    layout: vertical;
+}
+
+#main-container {
+    padding: 1;
+    layout: vertical;
+}
+
+#daily-progress, #history-meals {
+    width: 100%;
+    padding: 1;
+    border: solid green;
+    margin-bottom: 1;
+}
+
+.title {
+    text-style: bold;
+    color: blue;
+    margin-bottom: 1;
+}
+
+.subtitle {
+    text-style: underline;
+    margin-bottom: 1;
+}
+
+/* Стили для модальных окон */
+ModalScreen {
+    align: center middle;
+}
+
+#add-meal-container, #add-food-container, #remove-container, 
+#statistic-container, #targets-container {
+    width: 80%;
+    height: 80%;
+    border: round blue;
+    padding: 1;
+    background: $surface;
+}
+
+/* Стили для кнопок */
+Button {
+    width: auto;
+    margin: 1;
+}
+
+Button:focus {
+    text-style: bold;
+}
+
+/* Стили для списков */
+ListView {
+    height: auto;
+    max-height: 10;
+    border: round gray;
+    margin-bottom: 1;
+}
+
+ListItem {
+    padding: 1;
+}
+
+ListItem:hover {
+    background: $accent;
+}
+
+ListItem:focus {
+    background: $accent-darken-1;
+}
+
