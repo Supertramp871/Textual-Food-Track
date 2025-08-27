@@ -70,3 +70,38 @@ ListItem:focus {
     background: $accent-darken-1;
 }
 
+/* Стили для экрана добавления приема пищи */
+#add-meal-container {
+    layout: vertical;
+}
+
+.search-results {
+    height: 6;
+    border: round gray;
+    margin-bottom: 1;
+}
+
+.search-results ListItem {
+    padding: 1;
+}
+
+.search-results ListItem:hover {
+    background: $accent;
+}
+
+.search-results ListItem:focus {
+    background: $accent-darken-1;
+}
+
+#selected-food-name {
+    text-style: bold;
+    color: green;
+}
+
+#calculated-values {
+    background: $panel;
+    padding: 1;
+    border: round green;
+    margin: 1 0;
+}
+

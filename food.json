@@ -5,5 +5,19 @@
         "Protein": 24,
         "Fat": 234,
         "Carbohydrates": 2342
+    },
+    {
+        "food": "rice",
+        "Caloric Value": 100,
+        "Protein": 2,
+        "Fat": 3,
+        "Carbohydrates": 44554
+    },
+    {
+        "food": "drinl",
+        "Caloric Value": 10,
+        "Protein": 20,
+        "Fat": 30,
+        "Carbohydrates": 40
     }
 ]

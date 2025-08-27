@@ -7,5 +7,50 @@
         "Carbohydrates": 424,
         "Grams": 24,
         "Datetime": "19:10-27.08.2025"
+    },
+    {
+        "food": "rice",
+        "Caloric Value": 200,
+        "Protein": 4,
+        "Fat": 6,
+        "Carbohydrates": 89108,
+        "Grams": 200,
+        "Datetime": "20:05-27.08.2025"
+    },
+    {
+        "food": "drinl",
+        "Caloric Value": 30,
+        "Protein": 60,
+        "Fat": 90,
+        "Carbohydrates": 120,
+        "Grams": 300,
+        "Datetime": "20:06-27.08.2025"
+    },
+    {
+        "food": "fdsf",
+        "Caloric Value": 9907,
+        "Protein": 1016,
+        "Fat": 9907,
+        "Carbohydrates": 99160,
+        "Grams": 4234,
+        "Datetime": "20:08-27.08.2025"
+    },
+    {
+        "food": "fdsf",
+        "Caloric Value": 234,
+        "Protein": 24,
+        "Fat": 234,
+        "Carbohydrates": 2342,
+        "Grams": 100,
+        "Datetime": "20:19-27.08.2025"
+    },
+    {
+        "food": "rice",
+        "Caloric Value": 450,
+        "Protein": 9,
+        "Fat": 13,
+        "Carbohydrates": 200493,
+        "Grams": 450,
+        "Datetime": "20:21-27.08.2025"
     }
 ]
