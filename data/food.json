@@ -1,0 +1,30 @@
+[
+    {
+        "food": "a",
+        "Caloric Value": 1,
+        "Protein": 2,
+        "Fat": 3,
+        "Carbohydrates": 4
+    },
+    {
+        "food": "a",
+        "Caloric Value": 1,
+        "Protein": 2,
+        "Fat": 3,
+        "Carbohydrates": 4
+    },
+    {
+        "food": "b",
+        "Caloric Value": 1,
+        "Protein": 2,
+        "Fat": 3,
+        "Carbohydrates": 4
+    },
+    {
+        "food": "jf",
+        "Caloric Value": 3,
+        "Protein": 4,
+        "Fat": 5,
+        "Carbohydrates": 4
+    }
+]

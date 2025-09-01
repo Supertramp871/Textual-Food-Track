@@ -4,6 +4,7 @@ from textual.containers import Container, Horizontal, Vertical
 from textual.screen import ModalScreen
 from textual.widgets import Button, Input, Label, ListView, ListItem
 from textual import events
+import modules.MainDisplay as MainDisplay
 import json
 
 class AddMealScreen(ModalScreen):
@@ -18,7 +19,7 @@ class AddMealScreen(ModalScreen):
     def load_foods(self):
         """Загрузка базы продуктов"""
         try:
-            with open("food.json", "r", encoding="utf-8") as f:
+            with open("data/food.json", "r", encoding="utf-8") as f:
                 return json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             return []
@@ -194,7 +195,7 @@ class AddMealScreen(ModalScreen):
             
             # Читаем существующие данные из файла
             try:
-                with open("meals.json", "r", encoding="utf-8") as f:
+                with open("data/meals.json", "r", encoding="utf-8") as f:
                     data = json.load(f)
             except (FileNotFoundError, json.JSONDecodeError):
                 data = []
@@ -203,12 +204,13 @@ class AddMealScreen(ModalScreen):
             data.append(meal_data)
             
             # Записываем обновленные данные обратно в файл
-            with open("meals.json", "w", encoding="utf-8") as f:
+            with open("data/meals.json", "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=4, ensure_ascii=False)
             
             self.notify("Meal added successfully!", severity="information")
             self.dismiss()
             
+        
         except Exception as e:
             self.notify(f"Error adding meal: {str(e)}", severity="error")
         

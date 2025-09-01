@@ -4,28 +4,40 @@ from textual.containers import Container, Horizontal
 from textual.screen import ModalScreen
 from textual import events
 import json
+import os
 
-class AddFoodScreen(ModalScreen):
-    """Экран для добавления пищи (на 100г)"""
+class SetTargets(ModalScreen):
+    """Экран для установки цели по КБЖУ"""
     
     def compose(self) -> ComposeResult:
+        # Пытаемся загрузить текущие цели для отображения
+        current_targets = self.load_current_targets()
+        
         yield Container(
-            Label("Add your food (per 100g)"),
-            Input(placeholder="Food name", id="food-name"),
-            Input(placeholder="Kcal", id="food-kcal"),
-            Input(placeholder="Protein", id="food-protein"),
-            Input(placeholder="Fat", id="food-fat"),
-            Input(placeholder="Carbs", id="food-carbs"),
+            Label("Set your daily targets"),
+            Input(placeholder="Daily calories", id="target-kcal", value=str(current_targets.get("calories", ""))),
+            Input(placeholder="Protein (g)", id="target-protein", value=str(current_targets.get("protein", ""))),
+            Input(placeholder="Fat (g)", id="target-fat", value=str(current_targets.get("fat", ""))),
+            Input(placeholder="Carbs (g)", id="target-carbs", value=str(current_targets.get("carbs", ""))),
             Horizontal(
-                Button("Add", id="add-food-btn"),
-                Button("Cancel", id="cancel-food-btn"),
+                Button("Save", id="save-targets-btn"),
+                Button("Cancel", id="cancel-targets-btn"),
             ),
-            id="add-food-container"
+            id="set-targets-container"
         )
+
+    def load_current_targets(self) -> dict:
+        """Загружает текущие цели из файла"""
+        try:
+            with open("data/targets.json", "r", encoding="utf-8") as f:
+                return json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            # Возвращаем пустые значения, если файла нет или он поврежден
+            return {"calories": "", "protein": "", "fat": "", "carbs": ""}
 
     def on_input_changed(self, event: Input.Changed) -> None:
         """Валидация числовых полей"""
-        numeric_fields = {"food-kcal", "food-protein", "food-fat", "food-carbs"}
+        numeric_fields = {"target-kcal", "target-protein", "target-fat", "target-carbs"}
         
         if event.input.id in numeric_fields:
             # Удаляем все нечисловые символы
@@ -37,7 +49,6 @@ class AddFoodScreen(ModalScreen):
                 if not cleaned_value:  # Если после удаления нулей ничего не осталось
                     cleaned_value = '0'
 
-            
             # Если значение изменилось после очистки, обновляем поле
             if cleaned_value != event.input.value:
                 event.input.value = cleaned_value
@@ -72,55 +83,43 @@ class AddFoodScreen(ModalScreen):
             self.dismiss()  # ESC == Cancel
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
-        if event.button.id == "add-food-btn":
-            self.add_food()
+        if event.button.id == "save-targets-btn":
+            self.save_targets()
         else:
             self.dismiss()
     
-    def add_food(self) -> None:
-        """Добавление приема пищи в файл food.json"""
+    def save_targets(self) -> None:
+        """Сохранение целей в файл targets.json"""
         try:
             # Получаем значения из полей ввода
-            food_name = self.query_one("#food-name", Input).value.strip()
-            kcal = self.query_one("#food-kcal", Input).value.strip()
-            protein = self.query_one("#food-protein", Input).value.strip()
-            fat = self.query_one("#food-fat", Input).value.strip()
-            carbs = self.query_one("#food-carbs", Input).value.strip()
+            kcal = self.query_one("#target-kcal", Input).value.strip()
+            protein = self.query_one("#target-protein", Input).value.strip()
+            fat = self.query_one("#target-fat", Input).value.strip()
+            carbs = self.query_one("#target-carbs", Input).value.strip()
             
             # Проверяем, что все обязательные поля заполнены
-            if not all([food_name, kcal, protein, fat, carbs]):
+            if not all([kcal, protein, fat, carbs]):
                 self.notify("Please fill all fields", severity="error")
                 return
             
             # Преобразуем числовые значения
             try:
-                food_data = {
-                    "food": food_name,
-                    "Caloric Value": int(kcal),
-                    "Protein": int(protein),
-                    "Fat": int(fat),
-                    "Carbohydrates": int(carbs)
+                targets_data = {
+                    "calories": int(kcal),
+                    "protein": int(protein),
+                    "fat": int(fat),
+                    "carbs": int(carbs)
                 }
             except ValueError:
                 self.notify("Please enter valid numbers", severity="error")
                 return
             
-            # Читаем существующие данные из файла
-            try:
-                with open("food.json", "r", encoding="utf-8") as f:
-                    data = json.load(f)
-            except (FileNotFoundError, json.JSONDecodeError):
-                data = []
+            # Записываем данные в файл
+            with open("data/targets.json", "w", encoding="utf-8") as f:
+                json.dump(targets_data, f, indent=4, ensure_ascii=False)
             
-            # Добавляем новую запись
-            data.append(food_data)
-            
-            # Записываем обновленные данные обратно в файл
-            with open("food.json", "w", encoding="utf-8") as f:
-                json.dump(data, f, indent=4, ensure_ascii=False)
-            
-            self.notify("Food added successfully!", severity="information")
+            self.notify("Targets saved successfully!", severity="information")
             self.dismiss()
             
         except Exception as e:
-            self.notify(f"Food adding meal: {str(e)}", severity="error")
+            self.notify(f"Error saving targets: {str(e)}", severity="error")

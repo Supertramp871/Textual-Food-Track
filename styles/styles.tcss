@@ -1,0 +1,183 @@
+/* MAIN --------------------- */
+Screen {
+    layout: vertical;
+}
+
+#main-container {
+    padding: 1;
+    layout: vertical;
+}
+
+#daily-progress, #history-meals {
+    width: 100%;
+    padding: 1;
+    border: solid green;
+    margin-bottom: 1;
+}
+
+.title {
+    text-style: bold;
+    color: blue;
+    margin-bottom: 1;
+}
+
+.subtitle {
+    text-style: underline;
+    margin-bottom: 1;
+}
+
+/* MODAL SCREEN ----------------------------------------- */
+ModalScreen {
+    align: center middle;
+}
+
+#add-meal-container, #add-food-container, #remove-container, 
+#statistic-container, #targets-container {
+    width: 80%;
+    height: 80%;
+    border: round blue;
+    padding: 1;
+    background: $surface;
+}
+
+/* BUTTONS -----------------------*/
+Button {
+    width: auto;
+    margin: 1;
+}
+
+Button:focus {
+    text-style: bold;
+}
+
+/* LIST IEW ----------------------------------------------------*/
+ListView {
+    height: auto;
+    max-height: 10;
+    border: round gray;
+    margin-bottom: 1;
+}
+
+ListItem {
+    padding: 1;
+}
+
+ListItem:hover {
+    background: $accent;
+}
+
+ListItem:focus {
+    background: $accent-darken-1;
+}
+
+SetTargets {
+    align: center middle;
+}
+    
+#set-targets-container {
+    width: 60;
+    height: auto;
+    border: solid $accent;
+    background: $surface;
+    padding: 1 2;
+}
+
+#set-targets-container > Label {
+    width: 100%;
+    content-align: center middle;
+    margin-bottom: 1;
+    text-style: bold;
+}
+    
+#set-targets-container > Input {
+    width: 100%;
+    margin-bottom: 1;
+}
+
+#set-targets-container > Horizontal {
+    width: 100%;
+    height: auto;
+    align-horizontal: center;
+    margin-top: 1;
+}
+
+#set-targets-container Button {
+    width: 12;
+    margin: 0 1;
+}
+
+
+/* REMOVE SCREENS ----------------------------------------------------------------- */
+#remove-food-container {
+    width: 80%;
+    height: 80%;
+    background: $surface;
+    border: panel $primary;
+    padding: 1;
+}
+
+
+#remove-meal-container {
+    width: 80%;
+    height: 80%;
+    background: $surface;
+    border: panel $primary;
+    padding: 1;
+}
+
+#remove-food-container .title {
+    text-align: center;
+    color: $warning;
+    text-style: bold;
+}
+
+#food-search {
+    width: 100%;
+    margin-bottom: 1;
+}
+
+.search-results {
+    height: 60%;
+    border: solid $primary;
+    margin-bottom: 1;
+}
+
+/* Стиль для фокуса на элементе списка */
+.search-results ListItem:focus {
+    background: $accent;
+}
+
+/* Стиль для выделенного элемента */
+.search-results ListItem.selected {
+    background: $warning;
+    color: $text;
+    text-style: bold;
+}
+
+.selected {
+    background: $accent;
+    color: $text;
+}
+
+/* Стиль для элемента с фокусом И выделением */
+.search-results ListItem.selected:focus {
+    background: $warning-darken-1;
+    color: $text;
+}
+
+#buttons-container {
+    width: 100%;
+    align: center middle;
+}
+
+#buttons-container Button {
+    margin: 0 1;
+}
+
+#delete-btn {
+    background: $error;
+}
+
+#delete-btn:hover {
+    background: $error-darken-1;
+}
