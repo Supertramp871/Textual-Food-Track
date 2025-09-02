@@ -17,4 +17,4 @@ Use your keyboard only :)
 - ^p - pallete
 - esc - to close any modal window.
 
-![alt text](https://imgur.com/JbDA0RE)
+![alt text](https://github.com/Supertramp871/Textual-Food-Track/raw/master/img.png
