@@ -17,4 +17,4 @@ Use your keyboard only :)
 - ^p - pallete
 - esc - to close any modal window.
 
-https://imgur.com/JbDA0RE
+![alt text](https://imgur.com/JbDA0RE)
