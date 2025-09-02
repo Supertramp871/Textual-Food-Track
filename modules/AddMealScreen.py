@@ -23,8 +23,7 @@ class AddMealScreen(ModalScreen):
                 return json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             return []
-            
-    
+              
     def compose(self) -> ComposeResult:
         yield Container(
             Label("Find your meal in foods", classes="title"),
@@ -60,7 +59,6 @@ class AddMealScreen(ModalScreen):
             ),
             id="add-meal-container"
         )
-    
     
     def on_input_changed(self, event: Input.Changed) -> None:
         """Обработка поиска и изменения граммовки"""

@@ -1,30 +1,30 @@
 [
     {
-        "food": "a",
-        "Caloric Value": 1,
-        "Protein": 2,
+        "food": "Rice",
+        "Caloric Value": 100,
+        "Protein": 10,
         "Fat": 3,
-        "Carbohydrates": 4
+        "Carbohydrates": 70
     },
     {
-        "food": "a",
-        "Caloric Value": 1,
-        "Protein": 2,
-        "Fat": 3,
-        "Carbohydrates": 4
+        "food": "Chicken",
+        "Caloric Value": 200,
+        "Protein": 60,
+        "Fat": 2,
+        "Carbohydrates": 90
     },
     {
-        "food": "b",
-        "Caloric Value": 1,
+        "food": "Beer",
+        "Caloric Value": 300,
         "Protein": 2,
         "Fat": 3,
-        "Carbohydrates": 4
+        "Carbohydrates": 66
     },
     {
-        "food": "jf",
-        "Caloric Value": 3,
-        "Protein": 4,
-        "Fat": 5,
-        "Carbohydrates": 4
+        "food": "Snus",
+        "Caloric Value": 1,
+        "Protein": 45,
+        "Fat": 88,
+        "Carbohydrates": 3
     }
 ]

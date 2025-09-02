@@ -11,13 +11,17 @@ Screen {
 #daily-progress, #history-meals {
     width: 100%;
     padding: 1;
-    border: solid green;
+    border: solid orange;
     margin-bottom: 1;
+}
+
+#daily-progress {
+    text-align: center;
 }
 
 .title {
     text-style: bold;
-    color: blue;
+    color: orange;
     margin-bottom: 1;
 }
 
@@ -54,7 +58,7 @@ Button:focus {
 ListView {
     height: auto;
     max-height: 10;
-    border: round gray;
+    border: round green;
     margin-bottom: 1;
 }
 
@@ -127,7 +131,6 @@ SetTargets {
 
 #remove-food-container .title {
     text-align: center;
-    color: $warning;
     text-style: bold;
 }
 

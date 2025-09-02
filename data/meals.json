@@ -214,5 +214,176 @@
         "Carbohydrates": 4,
         "Grams": 100,
         "Datetime": "12:39-01.09.2025"
+    },
+    {
+        "food": "a",
+        "Caloric Value": 1,
+        "Protein": 2,
+        "Fat": 3,
+        "Carbohydrates": 4,
+        "Grams": 100,
+        "Datetime": "13:08-01.09.2025"
+    },
+    {
+        "food": "a",
+        "Caloric Value": 1,
+        "Protein": 2,
+        "Fat": 3,
+        "Carbohydrates": 4,
+        "Grams": 100,
+        "Datetime": "13:18-01.09.2025"
+    },
+    {
+        "food": "a",
+        "Caloric Value": 1,
+        "Protein": 2,
+        "Fat": 3,
+        "Carbohydrates": 4,
+        "Grams": 100,
+        "Datetime": "13:18-01.09.2025"
+    },
+    {
+        "food": "a",
+        "Caloric Value": 1,
+        "Protein": 2,
+        "Fat": 3,
+        "Carbohydrates": 4,
+        "Grams": 100,
+        "Datetime": "13:18-01.09.2025"
+    },
+    {
+        "food": "a",
+        "Caloric Value": 1,
+        "Protein": 2,
+        "Fat": 3,
+        "Carbohydrates": 4,
+        "Grams": 100,
+        "Datetime": "13:18-01.09.2025"
+    },
+    {
+        "food": "a",
+        "Caloric Value": 1,
+        "Protein": 2,
+        "Fat": 3,
+        "Carbohydrates": 4,
+        "Grams": 100,
+        "Datetime": "13:18-01.09.2025"
+    },
+    {
+        "food": "a",
+        "Caloric Value": 1,
+        "Protein": 2,
+        "Fat": 3,
+        "Carbohydrates": 4,
+        "Grams": 100,
+        "Datetime": "13:18-01.09.2025"
+    },
+    {
+        "food": "Rice",
+        "Caloric Value": 100,
+        "Protein": 10,
+        "Fat": 3,
+        "Carbohydrates": 70,
+        "Grams": 100,
+        "Datetime": "16:20-02.09.2025"
+    },
+    {
+        "food": "Rice",
+        "Caloric Value": 100,
+        "Protein": 10,
+        "Fat": 3,
+        "Carbohydrates": 70,
+        "Grams": 100,
+        "Datetime": "16:20-02.09.2025"
+    },
+    {
+        "food": "Rice",
+        "Caloric Value": 100,
+        "Protein": 10,
+        "Fat": 3,
+        "Carbohydrates": 70,
+        "Grams": 100,
+        "Datetime": "16:20-02.09.2025"
+    },
+    {
+        "food": "Rice",
+        "Caloric Value": 100,
+        "Protein": 10,
+        "Fat": 3,
+        "Carbohydrates": 70,
+        "Grams": 100,
+        "Datetime": "16:20-02.09.2025"
+    },
+    {
+        "food": "Rice",
+        "Caloric Value": 100,
+        "Protein": 10,
+        "Fat": 3,
+        "Carbohydrates": 70,
+        "Grams": 100,
+        "Datetime": "16:20-02.09.2025"
+    },
+    {
+        "food": "Rice",
+        "Caloric Value": 100,
+        "Protein": 10,
+        "Fat": 3,
+        "Carbohydrates": 70,
+        "Grams": 100,
+        "Datetime": "16:20-02.09.2025"
+    },
+    {
+        "food": "Rice",
+        "Caloric Value": 100,
+        "Protein": 10,
+        "Fat": 3,
+        "Carbohydrates": 70,
+        "Grams": 100,
+        "Datetime": "16:20-02.09.2025"
+    },
+    {
+        "food": "Rice",
+        "Caloric Value": 100,
+        "Protein": 10,
+        "Fat": 3,
+        "Carbohydrates": 70,
+        "Grams": 100,
+        "Datetime": "16:20-02.09.2025"
+    },
+    {
+        "food": "Rice",
+        "Caloric Value": 100,
+        "Protein": 10,
+        "Fat": 3,
+        "Carbohydrates": 70,
+        "Grams": 100,
+        "Datetime": "16:20-02.09.2025"
+    },
+    {
+        "food": "Chicken",
+        "Caloric Value": 200,
+        "Protein": 60,
+        "Fat": 2,
+        "Carbohydrates": 90,
+        "Grams": 100,
+        "Datetime": "22:00-02.09.2025"
+    },
+    {
+        "food": "Rice",
+        "Caloric Value": 324,
+        "Protein": 32,
+        "Fat": 9,
+        "Carbohydrates": 226,
+        "Grams": 324,
+        "Datetime": "22:01-02.09.2025"
+    },
+    {
+        "food": "Rice",
+        "Caloric Value": 900,
+        "Protein": 90,
+        "Fat": 27,
+        "Carbohydrates": 630,
+        "Grams": 900,
+        "Datetime": "22:01-02.09.2025"
     }
 ]
