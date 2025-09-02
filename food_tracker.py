@@ -2,6 +2,7 @@ from textual.app import App, ComposeResult
 from textual.widgets import Footer, Header
 from textual.screen import ModalScreen
 from datetime import datetime
+import os
 
 import modules.AddFoodScreen as AddFoodScreen
 import modules.AddMealScreen as AddMealScreen
@@ -86,6 +87,15 @@ class FoodTracker(App):
         #self.push_screen(StatisticScreen.StatisticScreen())
     
 
+def create_empty_file_if_not_exists(file_path):
+    if not os.path.exists(file_path):
+        with open(file_path, 'w', encoding='utf-8') as f:
+            pass  # Ничего не записываем
+        print(f"Создан файл: {file_path}")
+
 if __name__ == "__main__":
+    create_empty_file_if_not_exists('data/food.json')
+    create_empty_file_if_not_exists('data/meals.json')
+    create_empty_file_if_not_exists('data/targets.json')  
     app = FoodTracker()
     app.run()
