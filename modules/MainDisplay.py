@@ -6,7 +6,6 @@ import json
 import os
 
 class MainDisplay(Static):
-    """Основной виджет для отображения прогресса и истории"""
     
     def __init__(self):
         super().__init__()
@@ -14,7 +13,6 @@ class MainDisplay(Static):
         self.history_meals = self.load_today_meals()
     
     def load_targets(self) -> dict:
-        """Загрузка целевых значений из targets.json"""
         default_targets = {
             "calories": 0,
             "protein": 0,
@@ -27,7 +25,6 @@ class MainDisplay(Static):
                 with open('data/targets.json', 'r') as f:
                     return json.load(f)
             else:
-                # Создаем файл с значениями по умолчанию, если его нет
                 with open('data/targets.json', 'w') as f:
                     json.dump(default_targets, f, indent=4)
                 return default_targets
@@ -36,7 +33,6 @@ class MainDisplay(Static):
             return default_targets
     
     def load_today_meals(self) -> list:
-        """Загрузка приемов пищи за сегодня из meals.json"""
         try:
             with open('data/meals.json', 'r') as f:
                 meals = json.load(f)
@@ -48,7 +44,6 @@ class MainDisplay(Static):
         
         for meal in meals:
             if today in meal.get("Datetime", ""):
-                # Форматируем данные для отображения
                 kcal = meal.get("Caloric Value", 0)
                 protein = meal.get("Protein", 0)
                 fat = meal.get("Fat", 0)
@@ -64,15 +59,12 @@ class MainDisplay(Static):
         return today_meals
     
     def calculate_daily_progress(self) -> dict:
-        """Вычисление прогресса за сегодня"""
         today_meals = self.load_today_meals()
         targets = self.load_targets()
         
-        # Суммируем питательные вещества за день
         total = {"calories": 0, "protein": 0, "fat": 0, "carbs": 0}
         
         for meal in today_meals:
-            # Парсим значения из строки "kcal/protein/fat/carbs"
             values = meal["values"].split('/')
             if len(values) == 4:
                 try:
@@ -83,14 +75,12 @@ class MainDisplay(Static):
                 except ValueError:
                     continue
         
-        # Рассчитываем проценты и статусы
         progress = {}
         for nutrient in ["calories", "protein", "fat", "carbs"]:
             current = total[nutrient]
             target = targets.get(nutrient, 0)
             percent = round((current / target) * 100) if target > 0 else 0
             
-            # Определяем статус
             status = "normal"
             if current < target: 
                 status = "missed"
@@ -115,7 +105,6 @@ class MainDisplay(Static):
         )
     
     def render_daily_progress(self) -> Static:
-        """Рендеринг дневного прогреgress"""
         progress = self.daily_progress
         
         content = f"[bold]DAILY PROGRESS[/]\n"
@@ -139,7 +128,6 @@ class MainDisplay(Static):
         return Static(content, id="daily-progress")
     
     def _create_progress_bar(self, percent: int, width: int = 20) -> str:
-        """Создает текстовый прогресс-бар"""
         filled = int(percent * width / 100)
         bar = "█" * filled + "░" * (width - filled)
         
@@ -153,19 +141,16 @@ class MainDisplay(Static):
         return f"[{color}]{bar}[/]"
 
     def render_history(self) -> Static:
-        """Рендеринг истории питания в три равных столбца"""
         if not self.history_meals:
             return Static("No history meals", id="history-meals")
         
         content = "HISTORY MEALS\n\n"
         
-        # Рассчитываем количество строк (каждая строка содержит 3 приема пищи)
-        rows = (len(self.history_meals) + 2) // 3  # Округление вверх
+        rows = (len(self.history_meals) + 2) // 3
         
         for row in range(rows):
             line_parts = []
             
-            # Собираем данные для трех столбцов текущей строки
             for col in range(3):
                 index = row + col * rows
                 if index < len(self.history_meals):
@@ -175,7 +160,6 @@ class MainDisplay(Static):
                 else:
                     line_parts.append("")
             
-            # Форматируем строку с тремя столбцами
             content += f"{line_parts[0]:<35} {line_parts[1]:<35} {line_parts[2]:<35}\n"
         
         return Static(content, id="history-meals")
@@ -183,8 +167,8 @@ class MainDisplay(Static):
     def refresh_display(self) -> None:
         self.daily_progress = self.calculate_daily_progress()
         self.history_meals = self.load_today_meals()
-        self.query_one("#daily-progress").update(self.render_daily_progress().renderable) # type: ignore
-        self.query_one("#history-meals").update(self.render_history().renderable) # type: ignore
+        self.query_one("#daily-progress").update(self.render_daily_progress().renderable)
+        self.query_one("#history-meals").update(self.render_history().renderable)
 
     def on_mount(self) -> None:
         self.refresh_display()

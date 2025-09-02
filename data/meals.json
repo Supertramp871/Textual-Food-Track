@@ -385,5 +385,14 @@
         "Carbohydrates": 630,
         "Grams": 900,
         "Datetime": "22:01-02.09.2025"
+    },
+    {
+        "food": "Rice",
+        "Caloric Value": 100,
+        "Protein": 10,
+        "Fat": 3,
+        "Carbohydrates": 70,
+        "Grams": 100,
+        "Datetime": "00:11-03.09.2025"
     }
 ]

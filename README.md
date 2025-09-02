@@ -4,7 +4,7 @@ A simple command-line tool to count your daily calories.
 ## Usage
 1. Make sure you have Python installed.
 2. Open a terminal in this folder.
-3. Type: `make run`
+3. Type: `make setup` then `make run`
 
 Use your keyboard only :)
 - r - Add meal

@@ -145,12 +145,10 @@ SetTargets {
     margin-bottom: 1;
 }
 
-/* Стиль для фокуса на элементе списка */
 .search-results ListItem:focus {
     background: $accent;
 }
 
-/* Стиль для выделенного элемента */
 .search-results ListItem.selected {
     background: $warning;
     color: $text;
@@ -162,7 +160,6 @@ SetTargets {
     color: $text;
 }
 
-/* Стиль для элемента с фокусом И выделением */
 .search-results ListItem.selected:focus {
     background: $warning-darken-1;
     color: $text;

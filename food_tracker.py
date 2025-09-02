@@ -13,7 +13,6 @@ import modules.SetTargets as SetTargets
 import modules.StatisticScreen as StatisticScreen
 
 class Food: 
-    """Класс кбжу блюда на 100 грамм"""
     def __init__(self, name: str, kcal: int, protein: int, fat: int, carbs: int):
         self.name = name
         self.kcal = kcal
@@ -26,7 +25,6 @@ class Food:
         return (f"K{self.kcal}/, P{self.protein}/"f"F{self.fat}/, C{self.carbs}g")
 
 class Meal:
-    """Класс для представления приема пищи"""
     def __init__(self, name: str, kcal: int, protein: int, fat: int, carbs: int, gramms: int):
         self.name = name
         self.kcal = kcal
@@ -42,8 +40,6 @@ class Meal:
                 f"time='{self.time}')")
 
 class FoodTracker(App):
-    """A Textual track food."""
-
     CSS_PATH = "styles/styles.tcss"
 
     BINDINGS = [
@@ -57,40 +53,37 @@ class FoodTracker(App):
     ]
 
     def compose(self) -> ComposeResult:
-        """Create child widgets for the app."""
         yield Header()
         yield MainDisplay.MainDisplay()
         yield Footer()
 
     def action_add_meal(self) -> None:
-        """Действие для добавления приема пищи."""
         self.push_screen(AddMealScreen.AddMealScreen())
 
     def action_add_food(self) -> None:
-        """Действие для добавления продукта."""
         self.push_screen(AddFoodScreen.AddFoodScreen())
     
     def action_remove_meal(self) -> None:
-        """Действие для удаления приема пищи."""
         self.push_screen(RemoveMealScreen.RemoveScreenMeal())
     
     def action_remove_food(self) -> None:
-        """Действие для удаления продукта."""
         self.push_screen(RemoveFoodScreen.RemoveScreenFood())
     
     def action_set_targets(self) -> None:
-        """Действие для установки целей."""
         self.push_screen(SetTargets.SetTargets())
 
     def action_show_statistic(self) -> None:
-        """Действие для показа статистики."""
         #self.push_screen(StatisticScreen.StatisticScreen())
-    
+        pass
 
 def create_empty_file_if_not_exists(file_path):
+    directory = os.path.dirname(file_path)
+    if directory and not os.path.exists(directory):
+        os.makedirs(directory, exist_ok=True)
+    
     if not os.path.exists(file_path):
         with open(file_path, 'w', encoding='utf-8') as f:
-            pass  # Ничего не записываем
+            pass 
         print(f"Создан файл: {file_path}")
 
 if __name__ == "__main__":

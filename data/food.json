@@ -26,5 +26,12 @@
         "Protein": 45,
         "Fat": 88,
         "Carbohydrates": 3
+    },
+    {
+        "food": "goida",
+        "Caloric Value": 2,
+        "Protein": 3,
+        "Fat": 4,
+        "Carbohydrates": 55
     }
 ]

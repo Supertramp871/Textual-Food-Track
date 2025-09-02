@@ -4,4 +4,4 @@ from textual.screen import ModalScreen
 from datetime import datetime
 
 class StatisticScreen(ModalScreen):
-    """Экран для показа статистики"""
+    """..."""
